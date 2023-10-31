@@ -28,11 +28,13 @@ public class YuQueServicetTest {
     @Test
     public void testExportCollaborateMd() throws YuqueException, InterruptedException {
         yuQueService.exportCollaborateMd("D:\\Desktop\\公司\\yuqueBackUp\\");
+        Thread.sleep(1000*60);
     }
 
     //导出我的知识库文档
     @Test
     public void testExportMyMd() throws YuqueException, InterruptedException {
         yuQueService.exportMyMd("D:\\Desktop\\公司\\yuqueBackUp\\");
+        Thread.sleep(1000*60);
     }
 }

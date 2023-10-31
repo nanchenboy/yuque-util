@@ -77,17 +77,14 @@ public class YuQueServiceImpl implements YuQueService {
     private void export(ReposData reposData, List<DocsData> docsDataList, String outPath) {
         int start = 0;
         int size = docsDataList.size();
-        CountDownLatch countDownLatch = new CountDownLatch(size / 10 + 1);
         for (int i = 0; i < size/10+1; i++) {
             int end = (i + 1) * 10 > size ? size : (i + 1) * 10;
             if (start >= size) {
-                countDownLatch.countDown();
                 break;
             }
             List<DocsData> docsData = docsDataList.subList(start, end);
             start = end;
-            new YuQueThread(reposData,docsData,yuQueClient,outPath,countDownLatch).start();
+            new YuQueThread(reposData,docsData,yuQueClient,outPath).start();
         }
-        countDownLatch.await();
     }
 }

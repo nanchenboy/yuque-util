@@ -30,13 +30,10 @@ public class YuQueThread extends Thread {
 
     private String outPath;
 
-    private CountDownLatch countDownLatch;
-
-    public YuQueThread(ReposData reposData, List<DocsData> docsData, YuQueClient yuQueClient,String outPath,CountDownLatch countDownLatch) {
+    public YuQueThread(ReposData reposData, List<DocsData> docsData, YuQueClient yuQueClient,String outPath) {
         this.reposData = reposData;
         this.docsDataList = docsData;
         this.outPath = outPath;
-        this.countDownLatch = countDownLatch;
         if (this.yuQueClient == null) {
             this.yuQueClient = yuQueClient;
         }
@@ -52,6 +49,5 @@ public class YuQueThread extends Thread {
             String fileName = Func.removeUnLegalFolderChar(docsData.getTitle());
             FileUtil.exportFile(docMdText,outPath+reposName+"\\",fileName+".md");
         }
-        countDownLatch.countDown();
     }
 }

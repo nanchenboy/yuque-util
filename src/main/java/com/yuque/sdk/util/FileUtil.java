@@ -33,6 +33,6 @@ public class FileUtil {
     }
 
     public static void main(String[] args) {
-        exportFile("a","D:\\Desktop\\公司\\BackUp\\","a.txt");
+        exportFile("a","D:\\Desktop\\公司\\yuqueBackUp\\浙江省自然资源网上交易系统（一级市场）\\","a.txt");
     }
 }
